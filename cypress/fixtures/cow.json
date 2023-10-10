@@ -1,0 +1,14 @@
+{
+  "cowUrl":"http://65.1.7.25:3001/dashboard",
+  "instructor":"http://65.1.7.25:3001/instructor",
+  "apiCourse" :"http://65.1.7.25:4000/docs/#/category-master/get_category_master",
+  "Dashboards":["Instructor","Admin. Nacional","Admistracion","Marketing","Legales","Coord. Sede","Voluntario"],
+  "Months":["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"],
+  "calendarDates":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+  "Estatus":["Borrador","Revisión","Promoción","En Curso","Rendición","Cierre","Cerrado","Cancelado"],
+  "activites":["Cursos","Talleres","Seguimientos"],
+  "headings":["Nuevo curso","Nuevo taller","Nuevo 30 días post-curso"],
+  "text":["Querido instructor, al crear tu curso obtendrás los siguientes beneficios:","Querido instructor, al crear tu taller obtendrás los siguientes beneficios:"],
+  "secondPart":["También es necesario que tengas la siguiente información para poder crear tu curso:","Es necesario que tengas los siguientes detalles para poder crear tu taller en el sistema:"]
+  
+}
