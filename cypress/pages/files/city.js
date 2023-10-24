@@ -19,9 +19,7 @@ class city {
         // .scrollTo("bottom", { duration: 5000 })
         .scrollTo("bottom", { duration: 2000 })
         .scrollTo("bottom", { duration: 2000 })
-        .get(
-          '[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]'
-        )
+        .get('[class="break-words"]')
 
         .then((element) => {
           const innerTextArray = [...element].map((ele) => ele.innerText);
@@ -53,6 +51,7 @@ class city {
     expect(this.cityValues).to.deep.equal(this.api);
   }
   selectCity() {
+    // cy.get('input[type="text"]').eq(3).type("Woodlands/Bel Air").click()
     const city = this.cityValues.find((city) => city == "Woodlands/Bel Air");
     console.log(city, "selected city");
     cy.contains(city).click();

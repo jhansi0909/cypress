@@ -20,9 +20,7 @@ class state {
         .scrollTo("bottom", { duration: 5000 })
         .scrollTo("bottom", { duration: 2000 })
         .scrollTo("bottom", { duration: 2000 })
-        .get(
-          '[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]'
-        )
+        .get('[class="break-words"]')
 
         .then((element) => {
           const innerTextArray = [...element].map((ele) => ele.innerText);

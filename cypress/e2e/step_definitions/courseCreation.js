@@ -27,6 +27,12 @@ const citydata=new city()
 import apiGastos from "@pages/files/gastosData";
 const gastosdata=new apiGastos()
 
+
+  
+    crossIcon='[class="w-7 cursor-pointer text-success"]'
+  
+
+
 Given("I navigate to course static page", () => {
   course.navigate();
 });
@@ -82,10 +88,10 @@ When('user click on the {string} button', (button) => {
 });
 
 When('check all the input fields change to red color',()=>{
-    cy.get("#parent-drop-down-organizer_user_id-select").should('have.css','border-color','rgb(255, 0, 0)')
-    cy.get("#parent-drop-down-course_type-select").should('have.css','border-color','rgb(255, 0, 0)')
-    cy.get("#parent-drop-down-format-select").should('have.css','border-color','rgb(255, 0, 0)')
-    cy.get("#parent-drop-down-visibility-select").should('have.css','border-color','rgb(255, 0, 0)')
+    cy.get("#parent-drop-down-organizer_user_id-select").should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get("#parent-drop-down-course_type-select").should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get("#parent-drop-down-format-select").should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get("#parent-drop-down-visibility-select").should('have.css','border-color','rgb(255, 88, 88)')
 
 })
 
@@ -163,16 +169,17 @@ When('user click on {string} button Then only the popup model should be closed',
     })
   
     When('user put on the mouse notification icon',()=>{
+      cy.get('[class="inset-0 fixed w-full z-[500] h-full overflow-y-auto bg-black bg-opacity-30 "]').scrollTo('bottom',{duration:2000})
         cy.get('#popover-cpa').trigger('mouseover').should('be.visible')
         cy.get('#popover-cpa').trigger('mouseout')
     })
     When('all the input fields changes to green color and get crossIcon',()=>{
-    cy.get("#parent-drop-down-organizer_user_id-select").should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get('#parent-drop-down-teachers-select').should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get("#parent-drop-down-course_type-select").should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get("#parent-drop-down-format-select").should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get('[class="h-full  w-full focus:outline-none  placeholder:text-[#898989] "]').should('have.css','border-color','rgb(229, 231, 235)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get("#parent-drop-down-visibility-select").should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    cy.get("#parent-drop-down-organizer_user_id-select").should('have.css','border-color','rgb(68, 183, 65)').get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    cy.get('#parent-drop-down-teachers-select').should('have.css','border-color','rgb(68, 183, 65)').get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    cy.get("#parent-drop-down-course_type-select").should('have.css','border-color','rgb(68, 183, 65)').get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    cy.get("#parent-drop-down-format-select").should('have.css','border-color','rgb(68, 183, 65)').get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    cy.get('input[type="text"]').invoke('val').get('[class="flex flex-row items-center border px-3 rounded-[10px] focus:text-default focus:bg-white h-[55px] undefined border-success text-success"]').should('have.css','border-color','rgb(68, 183, 65)').get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    cy.get("#parent-drop-down-visibility-select").should('have.css','border-color','rgb(68, 183, 65)').get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
     })
     When('user click on save and continue button the data will save until we have filled. and save and continue button name also changed and also change the color {string}',()=>{
         cy.contains("Guardado").should('have.css',"border-color", "rgb(229, 231, 235)")
@@ -180,11 +187,11 @@ When('user click on {string} button Then only the popup model should be closed',
 
 // #step-2 
 When('all the input fields changes to red color',()=>{
-    cy.get('#parent-drop-down-region-select').should('have.css','border-color','rgb(255, 0, 0)')
-    cy.get('#parent-drop-down-country-select').should('have.css','border-color','rgb(255, 0, 0)')
-    cy.get('#parent-drop-down-state-select').should('have.css','border-color','rgb(255, 0, 0)')
-    cy.get('#parent-drop-down-city-select').should('have.css','border-color','rgb(255, 0, 0)')
-    cy.get('#parent-drop-down-center-select').should('have.css','border-color','rgb(255, 0, 0)')
+    cy.get('#parent-drop-down-region-select').should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get('#parent-drop-down-country-select').should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get('#parent-drop-down-state-select').should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get('#parent-drop-down-city-select').should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get('#parent-drop-down-center-select').should('have.css','border-color','rgb(255, 88, 88)')
     // cy.get('[class="h-full  w-full focus:outline-none  placeholder:text-[#898989] "]').should('have.css','border-color','rgb(255, 0, 0)')
 })
 
@@ -263,15 +270,21 @@ When('all the input fields changes to red color',()=>{
     cy.contains('Sede / Dirección').click()
     // cy.get('parent-drop-down-center-select').click()
    })
+   When('the user clicks on the one option',()=>{
+    // cy.get('[class="inset-0 fixed w-full z-[500] h-full overflow-y-auto bg-black bg-opacity-30 "]').scrollTo('bottom',{duration:2000})
+    // .get('#scroll-center').scrollTo('bottom',{duration:5000})
+    // .scrollTo('bottom',{duration:2000}).scrollTo('bottom',{duration:2000})
+    cy.contains("9Z=Y&BdK<4").click()
+   })
    When('it contain one add new button.',()=>{
         cy.get('[class="inset-0 fixed w-full z-[500] h-full overflow-y-auto bg-black bg-opacity-30 "]').should('be.visible').scrollTo('bottom',{ duration: 2000 })
-    cy.contains('+ Agregar nuevo').should('be.visible')
-   })
+    cy.get('#still-open-drop-down-').should('be.visible')
+   }) 
 //    When('user click on the {string} button',(text)=>{
 //     cy.contains(text).click()
 //    })
    When('user can add the center names.',()=>{
-    cy.get('[type="text"]').should("be.visible").type(generateRandomName());
+    cy.get('[placeholder="Agregar nueva ubicación"]').should("be.visible").type(generateRandomName());
     // cy.get('[class=" flex-[0.7] rounded-[10px] px-3"]').should('be.visible').type(generateRandomName())
    })
    When('the center input field prefilled the center name.',()=>{
@@ -280,21 +293,29 @@ When('all the input fields changes to red color',()=>{
    })
 
    When('user verify the direction input field.',()=>{
-    cy.get('[class="h-full  w-full focus:outline-none  placeholder:text-[#898989] "]').should('be.visible')
+    cy.get('[placeholder="Dirección"]').should('be.visible')
    })
    When('user can add the direction.',()=>{
-    cy.get('[class="h-full  w-full focus:outline-none  placeholder:text-[#898989] "]').type(generateRandomName())
+    cy.get('[placeholder="Dirección"]').type(generateRandomName())
    })
    When('user clear the region input field click on the crossIcon that can remove whole data in that step',()=>{
-    cy.get('#parent-drop-down-region-select')
-    .get('[class="mr-3"]').eq(0).click()
+    cy.get('#parent-drop-down-region-select').get('[class="w-7 cursor-pointer text-success"]').eq(0).click()
    })
    When('user click on the center input.',()=>{
      cy.contains('Sede / Dirección').click()
    })
    When('user want to select one center in the below dropdown',()=>{
-    cy.contains('a29MdM23gv').click()
+    // cy.get('[class="inset-0 fixed w-full z-[500] h-full overflow-y-auto bg-black bg-opacity-30 "]').scrollTo('bottom',{duration:2000})
+    // .get('#scroll-center').scrollTo('bottom',{duration:5000})
+    // .scrollTo('bottom',{duration:2000}).scrollTo('bottom',{duration:2000})
+    cy.contains("9Z=Y&BdK<4").click()
    })
+  //  When('user want to select one center in the below dropdown',()=>{
+  //       cy.get('[class="inset-0 fixed w-full z-[500] h-full overflow-y-auto bg-black bg-opacity-30 "]').scrollTo('bottom',{duration:2000})
+  //   .get('#scroll-center').scrollTo('bottom',{duration:5000})
+  //   .scrollTo('bottom',{duration:2000}).scrollTo('bottom',{duration:2000})
+  //   // cy.contains("8!Qc@jSFMW").click()
+  //  })
    //check all input feilds are filled or not
 //    When('the above all input fields are prefilled',()=>{
 //      cy.get('#parent-drop-down-region-select').should('have.text','')
@@ -306,13 +327,26 @@ When('all the input fields changes to red color',()=>{
 //    })
    //check the all input are change the color to green and get crossicon.
    When('all the input fields changes to green and get crossIcon',()=>{
-    cy.get('#parent-drop-down-region-select').should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get('#parent-drop-down-country-select').should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get('#parent-drop-down-state-select').should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get('#parent-drop-down-city-select').should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get('#parent-drop-down-center-select').should('have.css','border-color','rgb(22, 163, 74)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
-    cy.get('[class="h-full  w-full focus:outline-none  placeholder:text-[#898989] "]').should('have.css','border-color','rgb(229, 231, 235)').get('[class="mr-3"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    const crossIcon='[class="w-7 cursor-pointer text-success"]'
+    cy.get('#parent-drop-down-region-select').should('have.css','border-color','rgb(255, 88, 88)')
+    .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+
+    cy.get('#parent-drop-down-country-select').should('have.css','border-color','rgb(229, 231, 235)')
+    .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+
+    cy.get('#parent-drop-down-state-select').should('have.css','border-color','rgb(229, 231, 235)')
+    .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+
+    cy.get('#parent-drop-down-city-select').should('have.css','border-color','rgb(229, 231, 235)')
+    .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+
+    cy.get('#parent-drop-down-center-select').should('have.css','border-color','rgb(229, 231, 235)')
+    .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+
+    cy.get('[class="h-full  w-full focus:outline-none  placeholder:text-default "]').should('have.css','border-color','rgb(68, 183, 65)')
+    .get('[class="w-7 cursor-pointer"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
    })
+
 
 When("a.Static page is displayed,verify the heading,text and boxes", () => {
   creationCourse.staticPage();

@@ -15,6 +15,13 @@ When('the user enter the name in {string} input field',(inputname)=>{
     else if(inputname=="Teléfono"){
     cy.get('.card').find('[placeholder="' + inputname + '"]').type(randomPhoneNumber)
     }
+    else if(inputname=="Password"){
+        cy.get('[placeholder="' + inputname + '"]').type('jhansi123')
+    }
+    else if(inputname=="Email"){
+        cy.get('[placeholder="' + inputname + '"]').type('jhansi123@gmail.com')
+    }
+
     else{
     cy.get('.card').find('[placeholder="' + inputname + '"]').type(generateRandomGmail())
     }

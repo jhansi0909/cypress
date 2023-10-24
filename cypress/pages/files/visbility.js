@@ -59,7 +59,7 @@ class apiVisibility {
       console.log(apiArray, "array values are");
       console.log(response, "the new response isssssss");
       cy.get("#parent-drop-down-visibility-select")
-        .get('[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]')
+      .get('[class="break-words"]')
         .then((element) => {
           const innerTextArray = [...element].map((ele) => ele.innerText);
           console.log(innerTextArray);
@@ -82,7 +82,7 @@ visibilityInput() {
     this.equalValues.filter((value) => {
       cy.contains(value).click();
       if (value == "Privado") {
-        cy.get('[class="mr-3"]').eq(4).click();
+        cy.get('[class="w-7 cursor-pointer text-success"]').eq(4).click();
       }
     });
   }

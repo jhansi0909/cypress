@@ -2,7 +2,12 @@ Feature:course homepage
     Background:
         Given I navigate to course static page
     Scenario: valid static page homepage
-        When user can verify "Admistracion" in the dashboard page
+#     login page
+When the user enter the name in "Email" input field
+When the user enter the name in "Password" input field
+        Then user click on the "Login" button 
+        # statis page
+        When user can verify "Admistracion" in the dashboard page       
         When user click on "Instructor" in the dashboard page
         When user click on "Actividades" in the instructor dashboard
         When user click on "Cursos" in the instructor dashboard
@@ -22,9 +27,9 @@ Feature:course homepage
         When user verify the close Icon "<step=0>"
         Then user click on the "INICIAR AHORA" button 
 
-
 # Scenario: step 1 testcases for creation of course
-        When user can verify the text "NUEVO CURSO"
+
+#         When user can verify the text "NUEVO CURSO"
         When user can verify the text "¿Qué curso estas organizando?"
         When user verify the close Icon "<step=1>"
         # When user verify the "<step=1>" button
@@ -70,7 +75,7 @@ Feature:course homepage
         When 1.user click on format input we have to open one dropdown. In that dropdown contains two options.
         When user select "Presencial" and then user want to select "En Linea". we have to open below one input that is zoom link input.
         # that value filled the input and then change the color "Green". and we get one crossIcon. and also we have to clear the previously selected option click on the "cross" icon the total input color changed "red". and then user want to select "En Linea". we have to open below one input that is zoom link input. the zoom link only accept corect format. it changes color "green" otherwise we have to provide wrong format it changes the color "red".
-    ## user select the visibility
+ ## user select the visibility
         When api getting data "visibility"
         When 1.user click on visibility input we have to open one dropdown. In that dropdown contains two options. 
         When user select "Private" and then user want to select "Public" click on public option
@@ -82,131 +87,143 @@ Feature:course homepage
     When user click on save and continue button the data will save until we have filled. and save and continue button name also changed and also change the color "green"
     When user click on the "SIGUIENTE" button
 
-        When user verify the "<step=2>" button
-        When user verify the "<step=3>" button
-        When user verify the "<step=4>" button
-# # Scenario: step 2 testcases for creation of course
-#         When user can verify the text "NUEVO CURSO"
-#         When user can verify the text "Ubicación / Alcance"
-#         When user verify the close Icon "<step=2>"
-#         When user can verify the text "Elige la ubicación geográfica donde ocurrirá tu curso o la zona geográfica donde está la audiencia de tu curso"
+        # When user verify the "<step=2>" button
+        # When user verify the "<step=3>" button
+        # When user verify the "<step=4>" button
 
-# When user click on the "SIGUIENTE" button
-# When all the input fields changes to red color
+# # Scenario: step 2 testcases for creation of course
+
+        When user can verify the text "NUEVO CURSO"
+        When user can verify the text "Ubicación / Alcance"
+        When user verify the close Icon "<step=2>"
+        When user can verify the text "Elige la ubicación geográfica donde ocurrirá tu curso o la zona geográfica donde está la audiencia de tu curso"
+
+When user click on the "SIGUIENTE" button
+When all the input fields changes to red color
 
 #   # user select the region data 
-#   When api getting Region data
-#     When user verify the region input
-#     When user click on region input we have to open dropdown.
-#     When In that dropdown contain the list of regions. which is come from the database. 
-#     When user want to select any one of the region.
+
+  When api getting Region data
+    When user verify the region input
+    When user click on region input we have to open dropdown.
+    When In that dropdown contain the list of regions. which is come from the database. 
+    When user want to select any one of the region.
 #     #  that value is filled the input field and changes the color "green" and we get one crossIcon. and also we have to clear the previously selected option click on the "cross" icon the total input color changed "red".
 
 #     # user select the country data
-#     When api getting country data
-#     When user verify the country input
-#     When user click on country input we have to open dropdown.
-#     When In that dropdown contain the list of realted countries above selected region. which is come from the database.
-#     When user want to select any one of the country.
+
+    When api getting country data
+    When user verify the country input
+    When user click on country input we have to open dropdown.
+    When In that dropdown contain the list of realted countries above selected region. which is come from the database.
+    When user want to select any one of the country.
 #     #  that value is filled the input field and changes the color "green" and we get one crossIcon. and also we have to clear the previously selected option click on the "cross" icon the total input color changed "red".
 
 # # user select the state data
-#     When api getting state data
-#     When user verify the state input
-#     When user click on state input we have to open dropdown.
-#     When In that dropdown contain the list of realted states above selected country. which is come from the database.
-#     When user want to select any one of the state.
+
+    When api getting state data
+    When user verify the state input
+    When user click on state input we have to open dropdown.
+    When In that dropdown contain the list of realted states above selected country. which is come from the database.
+    When user want to select any one of the state.
 #     # When that value is filled the input field and changes the color "green" and we get one crossIcon. and also we have to clear the previously selected option click on the "cross" icon the total input color changed "red".
 
 # # user select the city data
-#     When api getting city data
-#     When user verify the city input
-#     When user click on city input we have to open dropdown.
-#     When In that dropdown contain the list of realted cities above selected state. which is come from the database.
-#     When user want to select any one of the city.
+
+    When api getting city data
+    When user verify the city input
+    When user click on city input we have to open dropdown.
+    When In that dropdown contain the list of realted cities above selected state. which is come from the database.
+    When user want to select any one of the city.
 #     # When that value is filled the input field and changes the color "green" and we get one crossIcon. and also we have to clear the previously selected option click on the "cross" icon the total input color changed "red".
 
 # #user verify the center input field
-#     When user verify the center input.user click on the center input field.
+
+    When user verify the center input.user click on the center input field.
+    When the user clicks on the one option
+
 #     When it contain one add new button.
-#     When user click on the "+ Agregar nuevo" button
-#     # When user click on the "+ Agregar nuevo" button
+#     When user click on the ' + Agregar nuevo' button
 #     When user can add the center names.
 #     When user click on the "Guardar" button
 #     When the center input field prefilled the center name.
  
 #  #user verify the direction input field
-#  When user verify the direction input field.
-#  When user can add the direction.
 
-#  When user clear the region input field click on the crossIcon that can remove whole data in that step
+ When user verify the direction input field.
+ When user can add the direction.
 
-#  When user click on the center input.
-#  When user want to select one center in the below dropdown
-# #  When the above all input fields are prefilled 
-#  When all the input fields changes to green and get crossIcon 
+ When user clear the region input field click on the crossIcon that can remove whole data in that step
 
-#     When user click on the "SIGUIENTE" button
+ When user click on the center input.
+ When user want to select one center in the below dropdown
+#  When the above all input fields are prefilled 
+ When all the input fields changes to green and get crossIcon 
+
+    When user click on the "SIGUIENTE" button
 
 ## user verify the step-3
 
-#         When user can verify the text "NUEVO CURSO"
-#         When user can verify the text "Introduce las fechas y horarios"
-#         When user verify the close Icon "<step=3>"
+        When user can verify the text "NUEVO CURSO"
+        When user can verify the text "Introduce las fechas y horarios"
+        When user verify the close Icon "<step=3>"
 
 # # verity the calendar
-# When the user verifies that the calendar icon is present
-# When the user clicks on the calendar icon
-# Then the calendar should open
-# # When the user verifies that the calendar displays the current date
-# When the user verifies the left arrow and right arrow
-# When the user click on the left arrow we have to move previous month
-# When the user click on the right arrow we have to move next month
-#         When the user verifies the presence of the "years" dropdown
-#         When the user clicks on the "years" dropdown
-#         Then the years dropdown should open
-#         When the user verifies the presence of the left and right arrows
-#         When the user clicks on the "left arrow". the years dropdown should display previous years
-#         When the user clicks on the "right arrow". the years dropdown should display next years
-#         When the user verifies the presence of the "months" dropdown
-#         When the user clicks on the "months" dropdown
-#         When the months dropdown should open
-#         When the user selects a month from the dropdown
-#         When user select the date 
-# And user click day "1" and select the "11:15" to "13:30" time
-# When user check the changes color to "green"
-        # When user click on the "Agregar nuevo" button
-        # When user enter the date manually
-        # Then user click on "2" clender and select +"7" from the current date
-#         And user click day "2" and select the "15:15" to "25:30" time
-#         And user check day "2" and click "X" icon we have clear the data on that day
-#         And user check day "2" and click "-" icon we have to delete the total day
 
-#         When user click on the "SIGUIENTE" button
+When the user verifies that the calendar icon is present
+When the user clicks on the calendar icon
+Then the calendar should open
+# # When the user verifies that the calendar displays the current date
+When the user verifies the left arrow and right arrow
+When the user click on the left arrow we have to move previous month
+When the user click on the right arrow we have to move next month
+        When the user verifies the presence of the "years" dropdown
+        When the user clicks on the "years" dropdown
+        Then the years dropdown should open
+        When the user verifies the presence of the left and right arrows
+        When the user clicks on the "left arrow". the years dropdown should display previous years
+        When the user clicks on the "right arrow". the years dropdown should display next years
+        When the user verifies the presence of the "months" dropdown
+        When the user clicks on the "months" dropdown
+        When the months dropdown should open
+        When the user selects a month from the dropdown
+        When user select the date 
+And user click day "1" and select the "11:15" to "13:30" time
+When user check the changes color to "green"
+        When user click on the "Agregar nuevo" button
+  # user enter the date manually
+        Then user click on "2" clender and select +"7" from the current date
+        And user click day "2" and select the "15:15" to "25:30" time
+        And user check day "2" and click "X" icon we have clear the data on that day
+        When user verify the "2" all the data are clear or not user click on "X" icon
+        And user check day "2" and click "-" icon we have to delete the total day
+
+        When user click on the "SIGUIENTE" button
 
 #  user verify the  step-4
 
-        # When user can verify the text "NUEVO CURSO"
-        # When user can verify the text "Información extra"
-        # When user verify the close Icon "<step=4>"
+        When user can verify the text "NUEVO CURSO"
+        When user can verify the text "Información extra"
+        When user verify the close Icon "<step=4>"
 
-        # When the user verifies the presence of the "Nombre" input field
-        # When the user enter the name in "Nombre" input field
-        # And the "Nombre" input field accept only "string"
-        # When the user verifies the presence of the "Teléfono" input field
-        # When the user enter the name in "Teléfono" input field
-        # And the "Teléfono" input field accept only "number"
-        # When the user verifies the presence of the "Correo electrónico" input field
-        # When the user enter the name in "Correo electrónico" input field
-        # And user can verify the "Seleccionar Gira" input
-        # And user click on "Seleccionar Gira" input field
-        # And the user verifies the presence of "Seleccionar Gira" open dropdown
-        # # When user want to select "Si" 
-        # When user want to select "No" option
+        When the user verifies the presence of the "Nombre" input field
+        When the user enter the name in "Nombre" input field
+        And the "Nombre" input field accept only "string"
+        When the user verifies the presence of the "Teléfono" input field
+        When the user enter the name in "Teléfono" input field
+        And the "Teléfono" input field accept only "number"
+        When the user verifies the presence of the "Correo electrónico" input field
+        When the user enter the name in "Correo electrónico" input field
+        And user can verify the "Seleccionar Gira" input
+        And user click on "Seleccionar Gira" input field
+        And the user verifies the presence of "Seleccionar Gira" open dropdown
+ # When user want to select "Si" 
+        When user want to select "No" option
         # When user can verify the "Seleccionar" input
         # And user click on "Seleccionar" input field
         # And the user verifies the presence of "Seleccionar" open dropdown
 
+   When the user clicks on the "SIGUIENTE"
 
 # user verify the step-5
 
@@ -233,7 +250,7 @@ When user verify the close Icon "<step=5>"
         When user can verify the text "Gastos directos"
         When user click on the "Gastos directos" button
 
-        When the user clicks on the "Si"
+        # When the user clicks on the "Si"
 
         When user click on the " Agregar nuevo" button
 
@@ -275,18 +292,29 @@ When user verify the close Icon "<step=5>"
         When user want to type the description
 
 # user click on the "Reembolso"
-        When the user clicks on the "Adelanto"
-        When the user clicks on the "Reembolso"
-        When the user clicks on the "ADJUNTAR FACTURA"
+        # When the user clicks on the "Adelanto"
+        # When the user clicks on the "Reembolso"
+        # When the user clicks on the "ADJUNTAR FACTURA"
         When the user clicks on the "GUARDAR"
 
 When user check the apidata and frontend data
   
   When user check the amount "Gastos directos estimados". it is less than <4000
-    
+#   When user want caluculate the balance
+ 
+      And the "SIGUIENTE" enable blue color
+      When the user clicks on the "SIGUIENTE"
 
-   
-        When the user clicks on the "SIGUIENTE"
+#user verify the step-6
+
+     When the user clicks on the edit icon
+
+      When the user verifies the presence of the "Teléfono" input field
+      When user edit the "Teléfono" number
+      When the user enter the name in "Teléfono" input field
+      When the user clicks on the "GUARDAR Y CERRAR"
+      When the user clicks on the "ENVIAR SOLICITUD"
+      When the user clicks on the crossicon
 
 
         # When user click on "¿Quién es el organizador?"

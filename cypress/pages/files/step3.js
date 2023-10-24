@@ -5,15 +5,15 @@ class DateTime{
     cy.get('#calendar-icon').should('be.visible')
  }
  verifyArrows(){
-    cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center "]').should('be.visible')
-cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center "]').should('be.visible')
+    cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center cursor-pointer"]').should('be.visible')
+cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center cursor-pointer"]').should('be.visible')
  }
  leftArrow(){
-    cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center "]').eq(0).click()
+    cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center cursor-pointer"]').eq(0).click()
     cy.wait(2000)
  }
  rightArrow(){
-    cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center "]').eq(1).click()
+    cy.get('[class="border border-[#D7D7D7] h-[30px] w-[30px] rounded-[10px] flex items-center justify-center cursor-pointer"]').eq(1).click()
     cy.wait(2000)
  }
  verifyMonthDropdown(){
@@ -62,9 +62,13 @@ getFutureDate(days, format = "DD-MMM-YYYY") {
             var getMonth = futureDate.toLocaleString("default", { month: "2-digit" });
             var getDay = futureDate.toLocaleString("default", { day: "2-digit" });
             return `${getDay}-${getMonth}-${getYear}`;
-        } else if (format === "DD-MMM-YYYY")
+        } else if (format === "DD-MMM-YYYY"){
+            var getYear = futureDate.getFullYear(); 
             return futureDate.toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "2-digit" }).replace("Sept", "Sep");
-
+        }
 }
+
+
+
 }
 export default DateTime

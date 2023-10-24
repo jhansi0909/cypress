@@ -19,7 +19,8 @@ class apiOrganizor {
       console.log(this.api, "array values are");
       console.log(response, "the new response isssssss");
       cy.get("#parent-drop-down-organizer_user_id-select")
-        .get('[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]')
+      .get('[class="break-words"]')
+    // .get('[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]')
         .then((element) => {
           const innerTextArray = [...element].map((ele) => ele.innerText);
           console.log(innerTextArray);

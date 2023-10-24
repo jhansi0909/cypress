@@ -1,25 +1,27 @@
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+// function getRandomInt(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
 
-function generateRandomDate() {
-  // Generate random values for day, month, and year components
-  const day = getRandomInt(1, 31); // Random day between 1 and 31
-  const month = getRandomInt(1, 12); // Random month between 1 and 12
-  const year = getRandomInt(23, 99); // Random year between 0 and 99 (assuming it's in the 20th or 21st century)
+// function generateRandomDate() {
+//   const year = 2023; // Set the year to 2023.
+//   const month = getRandomInt(1, 12);
+//   const day = getRandomInt(1, 28); // Assuming all months have up to 28 days for simplicity.
 
-  // Format the date components in "dd/mm/yy" format
-  const formattedDay = day.toString().padStart(2, "0"); // Ensure 2-digit day
-  const formattedMonth = month.toString().padStart(2, "0"); // Ensure 2-digit month
-  const formattedYear = year.toString().padStart(2, "0"); // Ensure 2-digit year
+//   // Ensure the date is in a valid range (e.g., February 29th for leap years).
+//   if (month === 2 && day > 28) {
+//     day = 28;
+//   }
 
-  // Combine the components to create the random date string
-  const randomDate = `${formattedDay}/${formattedMonth}/${formattedYear}`;
+//   // Add leading zeros to day and month if they are less than 10.
+//   const formattedDay = day < 10 ? `0${day}` : day;
+//   const formattedMonth = month < 10 ? `0${month}` : month;
 
-  return randomDate;
-}
+//   const date = `${formattedDay}/${formattedMonth}/${year}`;
+//   return date;
+// }
 
-// Example usage:
-const randomDate = generateRandomDate();
-console.log(randomDate);
-export default generateRandomDate
+
+// const randomDate = generateRandomDate();
+// console.log(randomDate);
+
+// export default randomDate

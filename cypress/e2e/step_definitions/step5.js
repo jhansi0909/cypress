@@ -8,6 +8,8 @@ const { default: generateRandomName } = require("@pages/regularExpression/center
 
 let actionPerformed = false;
 
+let datefilledactionperfomed=false
+
 When("user type the {string} input field", (name) => {
   if (!actionPerformed) {
     cy.contains(name).parent('div').parent('div').find('[type="text"]').should('be.visible')
@@ -42,41 +44,62 @@ When('user search the recently added category data by using the search input fie
     .click().should("have.css", "border-color", "rgb(229, 231, 235)")
 })
 
-When('user add date manually previous date {string} {string} {string}', (date,month,year) => {
-      cy.get('[class="relative"]').parent('div').parent('div').then(body => {
-  cy.get(body).find('[placeholder="dd"]').eq(0).type(date);
-  cy.get(body).find('[placeholder="mm"]').eq(0).type(month);
-  cy.get(body).find('[placeholder="yy"]').eq(0).type(year);
-      })
+When('user add date manually previous date {string} {string} {string}', () => {
+  //     cy.get('[class="relative"]').parent('div').parent('div').then(body => {
+  // cy.get(body).find('[placeholder="dd"]').eq(0).type(date);
+  // cy.get(body).find('[placeholder="mm"]').eq(0).type(month);
+  // cy.get(body).find('[placeholder="yyyy"]').eq(0).type("2023");
+  //     })
+  const today = new Date();
+const futureDate = new Date(today);
+futureDate.setDate(today.getDate() - 7);
+
+// Split the future date into day, month, and year
+const day = futureDate.getDate().toString();
+const month = (futureDate.getMonth() + 1).toString(); // Months are 0-based, so add 1
+const year = futureDate.getFullYear().toString();
+console.log(year,"yearisss")
+// Assuming each input field has a unique identifier, use appropriate selectors
+cy.get('[placeholder="dd"]').type(day); 
+cy.get('[placeholder="mm"]').type(month); 
+cy.get('[placeholder="yyyy"]').type(year);
 });
+
 When('It does not accept Previous date it change the color to {string}',()=>{
        cy.get(".card")
-         .get('[class="flex items-center border rounded-[10px] border-gray-300 pl-[16px] pr-[11px] w-[173px] h-[45px] undefined border-red"]')
-         .should("have.css", "border-color", "rgb(255, 0, 0)");
+         .get('[class="flex items-center border rounded-[10px]  pl-[16px] pr-[11px] w-[173px] h-[45px]  border-error"]')
+         .should("have.css", "border-color", "rgb(255, 88, 88)");
     // cy.get('[class="relative"]').should("have.css", "border-color", "rgb(255, 0, 0)")
 })
 When('user clear the previously enter date',()=>{
       cy.get('[class="relative"]').parent('div').parent('div').then(body => {
-  cy.get(body).find('[placeholder="yy"]').eq(0).clear();
-  cy.get(body).find('[placeholder="mm"]').eq(0).clear()
-  cy.get(body).find('[placeholder="dd"]').eq(0).clear()
+  cy.get(body).get('[class="w-7 cursor-pointer text-error "]').click()
       })
 })
 
-Then('user add date manually future date +{string} from the current date', (selectDate) => {
-    let days = dateAndTime.getFutureDate(+selectDate, "DD-MM-YY")
-    cy.log(days, "*****");
-    let date = days.split("-");
-    cy.get('[class="relative"]').parent('div').parent('div').then(body => {
-        cy.get(body).find('[placeholder="dd"]').eq(0).click().type(+date[0]);
-        cy.get(body).find('[placeholder="mm"]').eq(0).click().type(+date[1]);
-        cy.get(body).find('[placeholder="yy"]').eq(0).click().type(+date[2]);
-    })
+Then('user add date manually future date +{string} from the current date', (days,selectDate) => {
+  if (!datefilledactionperfomed) {
+  const today = new Date();
+const futureDate = new Date(today);
+futureDate.setDate(today.getDate() + 7);
+
+// Split the future date into day, month, and year
+const day = futureDate.getDate().toString();
+const month = (futureDate.getMonth() + 1).toString(); // Months are 0-based, so add 1
+const year = futureDate.getFullYear().toString();
+
+// Assuming each input field has a unique identifier, use appropriate selectors
+cy.get('[placeholder="dd"]').type(day); 
+cy.get('[placeholder="mm"]').type(month); 
+cy.get('[placeholder="yyyy"]').type(year);
+  }
+  datefilledactionperfomed=true
+
 })
 When('It accept {string} it change the color to {string} and get crossIcon',()=>{
     cy.get(".card")
-         .get('[class="flex items-center border rounded-[10px] border-gray-300 pl-[16px] pr-[11px] w-[173px] h-[45px] undefined border-green-600"]')
-.should('have.css','border-color','rgb(22, 163, 74)')
+         .get('[class="flex items-center border rounded-[10px]  pl-[16px] pr-[11px] w-[173px] h-[45px]  border-success"]')
+.should('have.css','border-color','rgb(68, 183, 65)')
 .get('[class="ml-auto"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
 })
 When('user can add the amount in {string} input field',()=>{
@@ -92,8 +115,8 @@ When('the user clicks on the check box {string}',(id)=>{
 cy.get(id).click()
 });
 When('It accept name it change the color to {string} and get crossIcon',()=>{
-  cy.get('.card').get('#parent-drop-down-transferred_to_user_id-select').should('have.css','border-color','rgb(22, 163, 74)')
-  .get('[class="w-7 cursor-pointer"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+  cy.get('.card').get('#parent-drop-down-transferred_to_user_id-select').should('have.css','border-color','rgb(68, 183, 65)')
+  .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
 })
 When('user want to type the description',()=>{
     cy.get('[placeholder="Descripcion (campo abierto)"]').type("helooooooooooo")
@@ -116,4 +139,8 @@ When('user want caluculate the balance',()=>{
 
 When('user check the amount {string}. it is less than <4000',()=>{
     gastos.checkGastosEstimadosAmount()
+})
+
+When('the {string} enable blue color',(button)=>{
+  cy.contains(button).should('have.css','border-color','rgb(229, 231, 235)')
 })

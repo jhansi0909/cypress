@@ -33,6 +33,7 @@
     "multiple-cucumber-html-reporter": "^3.0.1"
   },
   "dependencies": {
-    "cucumber": "^6.0.7"
+    "@cucumber/gherkin": "9.1.0",
+    "@cucumber/cucumber": "7.2.1"
   }
 }

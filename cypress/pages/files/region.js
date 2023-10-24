@@ -11,9 +11,7 @@ class region {
       console.log(this.api.length, "region names areeeee");
 
       cy.get("#parent-drop-down-region-select")
-        .get(
-          '[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]'
-        )
+      .get('[class="break-words"]')
         .then((element) => {
           const innerTextArray = [...element].map((ele) => ele.innerText);
           console.log(innerTextArray);

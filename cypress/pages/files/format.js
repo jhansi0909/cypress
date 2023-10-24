@@ -63,7 +63,7 @@ class apiFormat {
       console.log(apiArray, "array values are");
       console.log(response, "the new response isssssss");
       cy.get("#parent-drop-down-format-select")
-        .get('[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]')
+      .get('[class="break-words"]')
         .then((element) => {
           const innerTextArray = [...element].map((ele) => ele.innerText);
           console.log(innerTextArray);
@@ -89,7 +89,7 @@ class apiFormat {
         cy.get('[placeholder="Link Zoom"]').type("https://zoom.us/abcddegyghj");
       }
       else{
-        cy.get('[class="mr-3"]').eq(3).click();
+        cy.get('[class="w-7 cursor-pointer text-success"]').eq(3).click();
       }
     });
   }

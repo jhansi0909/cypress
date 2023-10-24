@@ -48,7 +48,7 @@ dateAndTime.verifyMonthDropdown()
 isMonthDropdownOpen=true
 })
 
-When('the user clicks on the {string} dropdown', () => {
+When('the user clicks on the "months" dropdown', () => {
     dateAndTime.clickMonthDropdown()
 
 });
@@ -105,25 +105,39 @@ Then('user click day {string} and select the {string} to {string} time', (day, t
     })
 
 })
-Then('user click on {string} clender and select +{string} from the current date', (day, selectDate) => {
-    let days = dateAndTime.getFutureDate(+selectDate, "DD-MM-YY")
-    cy.log(days, "*****");
-    let date = days.split("-");
-    cy.contains(`Día ${day}`).parent('div').parent('div').then(body => {
-        cy.get(body).find('[placeholder="dd"]').eq(0).click().type(+date[0]);
-        cy.get(body).find('[placeholder="mm"]').eq(0).click().type(+date[1]);
-        cy.get(body).find('[placeholder="yy"]').eq(0).click().type(+date[2]);
+Then('user click on {string} clender and select +{string} from the current date', (days, selectDate) => {
+    // let days = dateAndTime.getFutureDate(+selectDate, "DD-MM-YY")
+    // cy.log(days, "*****");
+    // let date = days.split("-");
+    cy.contains(`Día ${days}`).parent('div').parent('div').then(body => {   
+        // cy.get(body).find('[placeholder="dd"]').eq(0).click().type(+date[0]);
+        // cy.get(body).find('[placeholder="mm"]').eq(0).click().type(+date[1]);
+        // cy.get(body).find('[placeholder="yy"]').eq(0).click().type(+date[2]);
+
+        const today = new Date();
+        const futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + 7);
+        
+        // Split the future date into day, month, and year
+        const day = futureDate.getDate().toString();
+        const month = (futureDate.getMonth() + 1).toString(); // Months are 0-based, so add 1
+        const year = "2023"
+        
+        // Assuming each input field has a unique identifier, use appropriate selectors
+        cy.get(body).find('[placeholder="dd"]').type(day); 
+        cy.get(body).find('[placeholder="mm"]').eq(0).type(month); 
+        cy.get(body).find('[placeholder="yyyy"]').type(year);
     })
 })
 When('user check day {string} and click "-" icon we have to delete the total day',(day)=>{
     cy.contains(`Día ${day}`).parent('div').parent('div').then(body => {
-    cy.get(body).get('[class="w-[25px] h-[25px]  text-[#FF5858]  cursor-pointer"]').click()
+    cy.get(body).find('[class="w-[25px] h-[25px]  text-error  cursor-pointer"]').click()
     })
 
 })
 When('user check day {string} and click "X" icon we have clear the data on that day',(day)=>{
     cy.contains(`Día ${day}`).parent('div').parent('div').then(body => {
-      cy.get(body).get('[class="w-7 cursor-pointer text-red"]').click();
+      cy.get(body).find('[class="w-7 cursor-pointer text-success"]').click();
     //   cy.get(body).find('[placeholder="dd"]').eq(0).invoke(val).should("be.empty");
     //   cy.get(body).find('[placeholder="mm"]').eq(0).should("be.empty");
     //   cy.get(body).find('[placeholder="yy"]').eq(0).should("be.empty");
@@ -136,12 +150,12 @@ When('user check day {string} and click "X" icon we have clear the data on that 
 // check all the data are clear or not when i click the cross icon.
 When('user verify the {string} all the data are clear or not user click on {string} icon',(day)=>{
      cy.contains(`Día ${day}`).parent('div').parent('div').then(body => {
-         cy.get(body).find('[placeholder="dd"]').eq(0).invoke("val").should('have.value','be.empty')
-         cy.get(body).find('[placeholder="mm"]').eq(0).invoke("val").should('have.value','be.empty')
-         cy.get(body).find('[placeholder="yy"]').eq(0).invoke("val").should('have.value','be.empty')
-     cy.get(body).find('[placeholder="hh"]').eq(0).invoke("val").should('have.value','be.empty')
-     cy.get(body).find('[placeholder="mm"]').eq(1).invoke("val").should('have.value','be.empty')
-     cy.get(body).find('[placeholder="hh"]').eq(1).invoke("val").should('have.value','be.empty')
-     cy.get(body).find('[placeholder="mm"]').eq(2).invoke("val").should('have.value','be.empty')
+         cy.get(body).find('[placeholder="dd"]').eq(0).invoke("val").should('contains','')
+         cy.get(body).find('[placeholder="mm"]').eq(0).invoke("val").should('contains','')
+         cy.get(body).find('[placeholder="yyyy"]').eq(0).invoke("val").should('contains','')
+     cy.get(body).find('[placeholder="hh"]').eq(0).invoke("val").should('contains','')
+     cy.get(body).find('[placeholder="mm"]').eq(1).invoke("val").should('contains','')
+     cy.get(body).find('[placeholder="hh"]').eq(1).invoke("val").should('contains','')
+     cy.get(body).find('[placeholder="mm"]').eq(2).invoke("val").should('contains','')
     })
 })

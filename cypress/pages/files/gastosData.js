@@ -6,11 +6,14 @@ class apiGastos {
     this.gastosValues = null; // Initialize equalValues as an instance variable
     this.gastos = [];
     this.category = [];
-    this.frontEndArray=[]
+    this.resumeBoxArray=[]
     this.total=null
     this.amount=null;
     this.gastosData=[]
     this.value="$4000"
+    this.estimatedAmount=null
+    this.balance=null
+    this.finalbalance=null
   }
 
   data() {
@@ -23,7 +26,7 @@ class apiGastos {
   }
 
   getAllCategoryValues() {
-        cy.get('.card').get('[class="h-full  w-full focus:outline-none  placeholder:text-[#898989] "]').each(($el, index) => {
+        cy.get('.card').get('[class="h-full  w-full focus:outline-none  placeholder:text-default "]').each(($el, index) => {
 
         if ($el) {
             cy.log(index);
@@ -47,8 +50,10 @@ multiplyBothArrays(){
    const RepitentesMembresía = this.category[5] * this.gastos[0];
    const ProfesoradoDeYoga = this.category[6] * this.gastos[5];
 
-   this.total = Tallers + regular + repitence + ReferidosMembresía + RepitentesMembresía + ProfesoradoDeYoga
-   console.log(this.total)
+   this.total =  Tallers + regular + repitence + ReferidosMembresía + RepitentesMembresía + ProfesoradoDeYoga
+   this.estimatedAmount = "$"+this.total
+   console.log(this.estimatedAmount,"estimated amount isss")
+   
 
 //    this.gastosData= ["Ingresos estimados",this.total,"Gastos directos estimados"]
 
@@ -56,28 +61,45 @@ multiplyBothArrays(){
 }
 
 checkTheEstimationAmount(){
-    cy.get('[class="flex flex-row justify-between text-[#898989]"]').children().then((element) => {
+    cy.get('[class="flex flex-row justify-between text-default"]').children().then((element) => {
         console.log(element,"element iss")
-           this.frontEndArray = [...element].map((ele) => ele.innerText);
-           console.log(this.frontEndArray, "inner text isssss")
-           console.log(this.frontEndArray[3] < this.value,"value is less than 4000");
+           this.resumeBoxArray = [...element].map((ele) => ele.innerText);
+           console.log(this.resumeBoxArray, "inner text isssss")
+           console.log(this.resumeBoxArray[3] < this.value,"value is less than 4000");
 })
 }
 checkGastosEstimadosAmount(){
-  if(this.frontEndArray[3] < this.value){
+  if(this.resumeBoxArray[3] < this.value){
     console.log("hiiiiiiiiiii")
-   cy.get('[class="flex flex-row justify-between text-[#898989]"]').each(($el, index) => {
+   cy.get('[class="flex flex-row justify-between text-default"]').each(($el, index) => {
 
         if (index==1) {
             cy.log(index);
             cy.log($el);
-            cy.wrap($el).should('contain',this.frontEndArray[3])
+            cy.wrap($el).should('contain',this.resumeBoxArray[3])
+            console.log("gastos amount is less than 4000")
+        }
+        else{
+          console.log("gastos amount >4000")
         }
 })
   }
 }
 balanceAmount(){
-    this.frontEndArray
+  
+const removeDollarSymbol = this.resumeBoxArray[1].substring(1);
+const removedollarsymbol=this.resumeBoxArray[3].substring(1)
+  console.log(removeDollarSymbol,"total category amount")
+  console.log(removedollarsymbol,"gastos amount is")
+  this.balance=removeDollarSymbol-removedollarsymbol
+  console.log(this.balance,"balance amount isssss")
+
+  const balance= "$"+this.balance
+
+this.finalbalance=balance.toString()
+  console.log(this.finalbalance,"final balance isss")
+
+  cy.get('[class="flex flex-row justify-between text-[#59595B] font-medium"]').children().eq(1).should('contains',this.finalbalance)
 }
 
 }

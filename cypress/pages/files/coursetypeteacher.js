@@ -31,7 +31,7 @@ class apiCourseTypes{
       console.log(this.courseData, "value of api issssss");
 
        cy.get("#parent-drop-down-course_type-select")
-         .get('[class="p-2 text-sm cursor-pointer  hover:bg-[#7677F4] hover:bg-opacity-5 pl-4 text-[#59595B]"]')
+       .get('[class="break-words"]')
          .then((element) => {
            this.innerTextArray = [...element].map((ele) => ele.innerText);
            console.log(this.innerTextArray, "inner text isssss");

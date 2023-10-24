@@ -1,5 +1,5 @@
 {
-  "cowUrl":"http://65.1.7.25:3001/dashboard",
+  "cowUrl":"http://65.1.7.25:3001/",
   "instructor":"http://65.1.7.25:3001/instructor",
   "apiCourse" :"http://65.1.7.25:4000/docs/#/category-master/get_category_master",
   "Dashboards":["Instructor","Admin. Nacional","Admistracion","Marketing","Legales","Coord. Sede","Voluntario"],
@@ -9,6 +9,7 @@
   "activites":["Cursos","Talleres","Seguimientos"],
   "headings":["Nuevo curso","Nuevo taller","Nuevo 30 días post-curso"],
   "text":["Querido instructor, al crear tu curso obtendrás los siguientes beneficios:","Querido instructor, al crear tu taller obtendrás los siguientes beneficios:"],
-  "secondPart":["También es necesario que tengas la siguiente información para poder crear tu curso:","Es necesario que tengas los siguientes detalles para poder crear tu taller en el sistema:"]
-  
+  "secondPart":["También es necesario que tengas la siguiente información para poder crear tu curso:","Es necesario que tengas los siguientes detalles para poder crear tu taller en el sistema:"],
+
+  "crossIcon":["w-7 cursor-pointer text-success"]
 }
