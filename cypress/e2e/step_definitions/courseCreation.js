@@ -43,9 +43,9 @@ When("user click on {string} in the dashboard page", (card) => {
 Then("user can verify {string} in the dashboard page", (card) => {
   cy.contains(card).should("have.text", card);
 });
-When("user click on {string} in the instructor dashboard", (act) => {
+When("user click on {string} in the {string} dashboard", (act) => {
   // course.activites()
-  cy.get("#accordionExample").contains(act).click();
+  cy.get("#root").contains(act).click();
 });
 When("user click on course", () => {
   course.courseClick();
@@ -328,7 +328,7 @@ When('all the input fields changes to red color',()=>{
    //check the all input are change the color to green and get crossicon.
    When('all the input fields changes to green and get crossIcon',()=>{
     const crossIcon='[class="w-7 cursor-pointer text-success"]'
-    cy.get('#parent-drop-down-region-select').should('have.css','border-color','rgb(255, 88, 88)')
+    cy.get('#parent-drop-down-region-select').should('have.css','border-color','rgb(68, 183, 65)')
     .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
 
     cy.get('#parent-drop-down-country-select').should('have.css','border-color','rgb(229, 231, 235)')
@@ -340,11 +340,11 @@ When('all the input fields changes to red color',()=>{
     cy.get('#parent-drop-down-city-select').should('have.css','border-color','rgb(229, 231, 235)')
     .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
 
-    cy.get('#parent-drop-down-center-select').should('have.css','border-color','rgb(229, 231, 235)')
+    cy.get('#parent-drop-down-center-select').should('have.css','border-color','rgb(68, 183, 65)')
     .get('[class="w-7 cursor-pointer text-success"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
 
     cy.get('[class="h-full  w-full focus:outline-none  placeholder:text-default "]').should('have.css','border-color','rgb(68, 183, 65)')
-    .get('[class="w-7 cursor-pointer"]').should('have.css','border-color','rgb(229, 231, 235)').should('be.visible')
+    .get('[class="w-7 cursor-pointer"]').should('have.css','border-color','rgb(68, 183, 65)').should('be.visible')
    })
 
 

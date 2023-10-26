@@ -18,8 +18,14 @@ When('the user enter the name in {string} input field',(inputname)=>{
     else if(inputname=="Password"){
         cy.get('[placeholder="' + inputname + '"]').type('jhansi123')
     }
-    else if(inputname=="Email"){
+    else if(inputname=="Email"){    
         cy.get('[placeholder="' + inputname + '"]').type('jhansi123@gmail.com')
+    }
+    else if(inputname=="Nombre de la campaña maestra"){
+        cy.get('.card').find('[placeholder="' + inputname + '"]').type(namegenerate())
+    }
+    else if(inputname=="Descripción"){
+        cy.get('.card').find('[placeholder="' + inputname + '"]').type(namegenerate())
     }
 
     else{

@@ -3,6 +3,7 @@ class staticPage {
   small ='[class="w-[195px] h-[155px] border-[1px] border-[#D7D7D7] rounded-[10px] flex  flex-col justify-center items-center"]';
   smallCards ='[class="w-[195px] border-[1px] border-[#D7D7D7] rounded-[10px] flex flex-col justify-center items-center"]';
   images = '[class="flex justify-center pt-[14px]"]';
+  
   newCourse() {
     cy.contains("NUEVO CURSO").click();
     // .should('contain.text','NUEVO CURSO')
